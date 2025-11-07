@@ -4,6 +4,7 @@ import { auth } from "@/src/auth";
 import SigninBtn from "@/src/app/components/sign-in-btn";
 import Image from "next/image";
 import SignoutBtn from "@/src/app/components/sign-out-button";
+import Link from "next/link";
 
 
 export default async function Home() {
@@ -19,12 +20,8 @@ export default async function Home() {
         </>
         :
         <>
-          <h2> Next Auth v5 + Next 16</h2>
-          <p>User signed in with name: {session?.user?.name}</p>
-          <p>User signed in with email: {session?.user?.email}</p>
-          {session?.user?.image &&
-            <Image src={session?.user?.image} width={48} height={48} alt={session?.user.name || "Avatar"} />}
-          <SignoutBtn />
+          <Link href={"/user-info"}>User Info</Link>
+          <SignoutBtn/>
         </>
       }
     </div>
